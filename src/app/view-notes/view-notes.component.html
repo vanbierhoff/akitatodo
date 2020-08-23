@@ -1,8 +1,8 @@
 
 <div class="view-notes">
-    <div class= "p-inputgroup notes" *ngFor="let item of array">
+    <div class= "p-inputgroup notes" *ngFor="let not of notes">
         <span class="p-inputgroup-addon"><p-checkbox></p-checkbox></span>
-        <input type="text" pInputText placeholder="Username">         
+        <input type="text" pInputText placeholder="Username" value="{{not.name}}">
     </div>
   
 </div>

@@ -4,7 +4,7 @@ import {ID} from '@datorama/akita';
 import {NotesStore} from './notes.store';
 import {Notes, createNotes} from './notes.model';
 
-//Интеграция стора с angular, уточнить как работает?
+// Интеграция стора с angular, уточнить как работает?
 @Injectable({providedIn: 'root'})
 export class NotesService {
 
@@ -13,14 +13,14 @@ export class NotesService {
   ) {
   }
         // добавляем заметку в стор
-  addNotes(data: string){
+  addNotes(data: string): void {
     const notes = createNotes(data);
-    console.log(notes.id +"CreateID")
+    console.log(notes.id + ' CreateID');
     this.notesStore.add(notes);
   }
 
-  setFilter(filter:string){
-    this.notesStore.update({filter})
+  setFilter(filter: string ): void {
+    this.notesStore.update({filter});
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-view-notes',
@@ -8,11 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ViewNotesComponent implements OnInit {
 
   constructor() { }
- array =[
-   {arr: 'get'},
-   {arr: 'get'},
- ]
-  ngOnInit(): void {
-  }
+    @Input() notes;
+    ngOnInit(): void {
+    }
 
 }
