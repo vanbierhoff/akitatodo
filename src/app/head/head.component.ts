@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 import { NotesService } from './store-notes/notes.service';
 import { NotesQuery } from './store-notes/notes.query';
+import { Notes, Filter } from './store-notes/notes.model';
 
 
 @Component({
@@ -16,18 +17,16 @@ export class HeadComponent implements OnInit {
     private NotesQuery: NotesQuery, private NotesService: NotesService
   ) {
   }
-  notes: [];
-  combine$: Subscription;
+  notes: Notes[];
+  combine$: Observable<Notes[]>;
   ngOnInit(): void {
-    this.combine$ = this.NotesQuery.combine$.subscribe(notes => {
-      this.notes = notes
-    });
+    this.combine$ = this.NotesQuery.combine$;
   }
 
   addNotes(name: string): void {
     this.NotesService.addNotes(name);
   }
-  setFilter(filter: string): void {
+  setFilter(filter: Filter): void {
     this.NotesService.setFilter(filter);
   }
 

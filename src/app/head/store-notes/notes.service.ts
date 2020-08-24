@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NotesStore } from './notes.store';
-import { Notes, createNotes } from './notes.model';
+import { Notes, Filter, createNotes } from './notes.model';
 
 // Интеграция стора с angular, уточнить как работает?
 @Injectable({ providedIn: 'root' })
@@ -16,7 +16,7 @@ export class NotesService {
     this.notesStore.add(notes);
   }
 
-  setFilter(filter: string): void {
+  setFilter(filter: Filter): void {
     this.notesStore.update({ filter });
   }
 

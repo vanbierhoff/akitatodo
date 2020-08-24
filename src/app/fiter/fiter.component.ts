@@ -20,10 +20,10 @@ export class FiterComponent implements OnInit {
   ngOnInit(): void {
     this.selected = new FormControl('all');
     this.selected.valueChanges.subscribe(status => {
-      if(status === null){
+      if (status === null) {
         this.getNotes.emit('all')
       } else
-      this.getNotes.emit(status);
+        this.getNotes.emit(status);
     });
     this.typeNote = [
       { label: 'Все заметки', value: 'all' },

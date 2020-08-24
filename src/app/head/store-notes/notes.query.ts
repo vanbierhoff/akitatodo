@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {QueryEntity} from '@datorama/akita';
 import {map, filter} from 'rxjs/operators';
+import { Notes, Filter, createNotes } from './notes.model';
 import {combineLatest, Observable, Subscription, from} from 'rxjs';
 import {NotesStore, NotesState} from './notes.store';
 
@@ -9,23 +10,19 @@ import {NotesStore, NotesState} from './notes.store';
 export class NotesQuery extends QueryEntity<NotesState> {
 
     // запрос всех заметок
-    allNotes$: Observable<any> = this.selectAll();
+    allNotes$: Observable<Notes[]> = this.selectAll();
     // фильтр заметок
     filter$: Observable<any> = this.select('filter');
-    combine$: Observable<any> = combineLatest([this.filter$, this.allNotes$]).pipe(
-        map(data => {
-            const flt: string = data[0];
-            const notes: [] = data[1];
-            let result: any;
-            switch (flt) {
+    combine$: Observable<Notes[]> = combineLatest([this.filter$, this.allNotes$]).pipe(
+        map(([filterList, notes])=> {
+            switch (filterList) {
                 case 'all':
                     return notes;
                 case 'done':
-                    result = notes.filter(el => el['done'] === true);
-                    return result;
+                  return notes.filter((el: Notes) => el.done === true);
+
                 case 'notDone':
-                    result = notes.filter(el => el['done'] === false);
-                    return result;
+                    return notes.filter((el: Notes) => el.done === false);
             }
         })
     )

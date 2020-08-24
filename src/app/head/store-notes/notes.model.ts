@@ -6,6 +6,7 @@ export interface Notes {
   name: string;
   done: boolean
 };
+export type Filter = 'all' | 'done' | 'notDone';
 
 // фабричная функция для добавления заметки, разобраться зачем?)
 export function createNotes(name: string) {

@@ -1,8 +1,8 @@
 <div class="container">
     <app-create (create)="addNotes($event)"></app-create>
     <app-fiter (getNotes)="setFilter($event)"></app-fiter>
-    <app-view-notes [notes]="notes"
-    (updateNotes)="update($event)" 
+    <app-view-notes [notes]="combine$ | async"
+    (updateNotes)="update($event)"
     (deleteNotes)="remove($event)"
     (editNotes)="editName($event)"
     ></app-view-notes>
