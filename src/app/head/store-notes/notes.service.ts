@@ -1,6 +1,4 @@
 import {Injectable} from '@angular/core';
-import {ID} from '@datorama/akita';
-
 import {NotesStore} from './notes.store';
 import {Notes, createNotes} from './notes.model';
 

@@ -1,13 +1,12 @@
-
 <div class="view-notes">
-    <div class= "p-inputgroup notes" *ngFor="let not of notes">
-        <span class="p-inputgroup-addon "><p-checkbox
-            (onChange)="toggleCheck($event,not)"
-             [ngModel]="not.done"  [binary]="true">></p-checkbox></span>
-        <input (keyup.enter)="editName(not.id, $event.target.value)"
-         type="text" pInputText placeholder="notes"  value="{{not.name}}">
-        <button pButton class="p-button-danger"(click)="remove(not.id)" type="button" icon="pi pi-trash" iconPos="left"></button>
+    <div class="p-inputgroup notes" *ngFor="let not of notes">
+        <span class="p-inputgroup-addon ">
+            <p-checkbox (onChange)="toggleCheck($event,not)" [ngModel]="not.done" [binary]="true">></p-checkbox>
+        </span>
+        <input (keyup.enter)="editName(not.id, $event.target.value)" type="text" pInputText placeholder="notes"
+            value="{{not.name}}">
+        <button pButton class="p-button-danger" (click)="remove(not.id)" type="button" icon="pi pi-trash"
+            iconPos="left"></button>
 
     </div>
-  
 </div>
