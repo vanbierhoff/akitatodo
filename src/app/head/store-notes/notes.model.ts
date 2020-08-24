@@ -4,8 +4,8 @@ import { guid } from '@datorama/akita';
 export interface Notes {
   id: string;
   name: string;
-  done: boolean;
-}
+  done: boolean
+};
 
 // фабричная функция для добавления заметки, разобраться зачем?)
 export function createNotes(name: string) {

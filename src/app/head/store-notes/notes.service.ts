@@ -15,7 +15,6 @@ export class NotesService {
         // добавляем заметку в стор
   addNotes(data: string): void {
     const notes = createNotes(data);
-    console.log(notes.id + ' CreateID');
     this.notesStore.add(notes);
   }
 
@@ -23,10 +22,17 @@ export class NotesService {
     this.notesStore.update({filter});
   }
 
+  update(id:string, done: boolean): void {
+    this.notesStore.update(id, {done})
+  }
 
 
 
-  deleteProduct(id: ID): void {
+  removeEl(id: string): void {
     this.notesStore.remove(id);
+  }
+
+  updateName(id:string,name:string){
+    this.notesStore.update(id, {name})
   }
 }

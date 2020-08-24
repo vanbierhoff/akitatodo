@@ -1,8 +1,10 @@
 
 
-<p>Список Заметок</p>
+<p class="filter__list">Список Заметок</p>
 
-<div class="filter">
-    <span>Показывать</span>
-    <p-dropdown [options]="typeNote" [formControl]="selected" ></p-dropdown>
+<div class="filter__nav-block">
+    <span class="nav-block__vivew-p">Показывать</span>
+    <p-dropdown [options]="typeNote" [formControl]="selected"
+     [showClear]="true" [(ngModel)]="selectCntrol">
+    </p-dropdown>
 </div>

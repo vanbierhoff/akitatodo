@@ -3,7 +3,9 @@
 <div class="p-inputgroup ">
     <input type="text" (keyup.enter)="CreateEmit(name)" pInputText 
     placeholder="Keyword"[(ngModel)]="name" #inputName> 
-    <button type="button" pButton pRipple icon="pi pi-play" styleClass="p-button-warn"></button>      
+    <button type="button" 
+    (click)="CreateEmit(name)"
+    pButton pRipple icon="pi pi-play" styleClass="p-button-warn"></button>      
 </div>
 
 
