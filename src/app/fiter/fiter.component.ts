@@ -1,10 +1,8 @@
+import { Filter, Notes } from './../head/store-notes/notes.model';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-interface Note {
-  label: string;
-  value: string;
-}
+import { SelectItem } from 'primeng/api';
+
 @Component({
   selector: 'app-fiter',
   templateUrl: './fiter.component.html',
@@ -13,9 +11,9 @@ interface Note {
 export class FiterComponent implements OnInit {
   constructor() { }
 
-  typeNote: Note[];
+  typeNote: SelectItem[];
   selected: FormControl;
-  selectCntrol: string = 'all';
+  selectCntrol: Filter = 'all';
   @Output() getNotes: EventEmitter<any> = new EventEmitter<any>();
   ngOnInit(): void {
     this.selected = new FormControl('all');

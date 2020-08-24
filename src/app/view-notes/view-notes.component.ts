@@ -12,13 +12,12 @@ export class ViewNotesComponent implements OnInit {
   @Output() updateNotes: EventEmitter<any> = new EventEmitter<any>()
   @Output() deleteNotes: EventEmitter<any> = new EventEmitter<any>()
   @Output() editNotes: EventEmitter<any> = new EventEmitter<any>()
-  cities2: any;
   name: string;
-  selectedCity2: any;
   ngOnInit(): void {
   }
   value: boolean;
   toggleCheck(e: object, obj: object): void {
+    debugger
     let notes = {
       id: obj['id'],
       name: obj['name'],
@@ -37,6 +36,6 @@ export class ViewNotesComponent implements OnInit {
     this.editNotes.emit(options);
   }
 
- 
+
 
 }

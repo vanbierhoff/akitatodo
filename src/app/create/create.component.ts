@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter,
- Output,Input,ElementRef,ViewChild} from '@angular/core';
+import { NotesService } from './../head/store-notes/notes.service';
+import { FormControl } from '@angular/forms';
+import {  Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 
 @Component({
@@ -7,21 +8,22 @@ import { Component, OnInit, EventEmitter,
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent implements OnInit{
+export class CreateComponent implements OnInit {
 
-  constructor() { }
-  name:string
-  @Output() create = new EventEmitter ()
-  @ViewChild('inputName')  inputN: ElementRef
+  constructor(
+    private notesService: NotesService
+  ) { }
+  name: FormControl = new FormControl();
+  @Output() create = new EventEmitter();
   ngOnInit(): void {
-    
-  }
-  
-  CreateEmit(name:string):void {
-    this.create.emit(name)
-    this.inputN.nativeElement.blur()
-    this.name = ""
 
   }
-  
+
+
+  addNotes(): void {
+    const name: string = this.name.value
+    this.notesService.addNotes(name);
+    this.name.patchValue('')
+  }
+
 }

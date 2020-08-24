@@ -1,7 +1,7 @@
 <p class="filter__list">Список Заметок</p>
 <div class="filter__nav-block">
     <span class="nav-block__vivew-p">Показывать</span>
-    <p-dropdown [options]="typeNote" [formControl]="selected" 
-    [showClear]="true" [(ngModel)]="selectCntrol">
+    <p-dropdown [options]="typeNote" [formControl]="selected"
+    [showClear]="selected.value !== 'all'" >
     </p-dropdown>
 </div>

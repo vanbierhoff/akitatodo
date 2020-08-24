@@ -1,11 +1,7 @@
-
 <h2>Создать заметку</h2>
-<div class="p-inputgroup ">
-    <input type="text" (keyup.enter)="CreateEmit(name)" pInputText 
-    placeholder="Keyword"[(ngModel)]="name" #inputName> 
-    <button type="button" 
-    (click)="CreateEmit(name)"
-    pButton pRipple icon="pi pi-play" styleClass="p-button-warn"></button>      
-</div>
-
-
+<form (ngSubmit)="addNotes()">
+  <div class="p-inputgroup ">
+    <input type="text" pInputText [formControl]="name" placeholder="Keyword" #inputName>
+    <button type="submit" pButton pRipple icon="pi pi-play" styleClass="p-button-warn"></button>
+  </div>
+</form>

@@ -2,6 +2,7 @@ import { guid } from '@datorama/akita';
 
 // интерфейс для добавления заметки
 export interface Notes {
+  filter(arg0: (el: Notes) => boolean): any;
   id: string;
   name: string;
   done: boolean
